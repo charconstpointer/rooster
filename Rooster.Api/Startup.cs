@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +21,7 @@ namespace Rooster.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+            services.AddSingleton<ICollection<string>>(new List<string>());
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = "localhost";
