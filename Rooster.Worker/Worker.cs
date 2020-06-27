@@ -31,7 +31,7 @@ namespace Rooster.Worker
                 await _cache.SetStringAsync("sweets", value, stoppingToken);
                 await client.NotifyAsync(new ChangeNotificationRequest {Value = value});
                 _logger.LogInformation("Notification sent");
-                await Task.Delay(60000, stoppingToken);
+                await Task.Delay(5000, stoppingToken);
             }
         }
     }

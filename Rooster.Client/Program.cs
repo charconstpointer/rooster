@@ -1,26 +1,29 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
+using Rooster.Api.Messages;
 
 namespace Rooster.Client
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5000/rooster")
+                .WithUrl("http://localhost:5000/rooster-ws")
                 .Build();
 
-            connection.On<dynamic>("onChanged", (message) =>
+            connection.On<Notification>("onChanged", message =>
             {
-                Console.WriteLine(message.Message);
+                Console.WriteLine(message.Body);
             });
             connection.Closed += async error =>
             {
                 await Task.Delay(new Random().Next(0,5) * 1000);
                 await connection.StartAsync();
             };
+            connection.StartAsync().GetAwaiter().GetResult();
+            await Task.Delay(9999999);
         }
     }
 }

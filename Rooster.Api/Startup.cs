@@ -28,8 +28,9 @@ namespace Rooster.Api
                 options.InstanceName = "Rooster";
             });
             services.AddControllers();
-            services.AddSignalR().AddStackExchangeRedis("localhost",
-                options => { options.Configuration.ChannelPrefix = "rooster.ws"; });
+            services.AddSignalR();
+                // .AddStackExchangeRedis("localhost",
+                // options => { options.Configuration.ChannelPrefix = "rooster.ws"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +50,7 @@ namespace Rooster.Api
             {
                 endpoints.MapControllers();
                 endpoints.MapGrpcService<RoosterService>();
-                endpoints.MapHub<RoosterHub>("/rooster");
+                endpoints.MapHub<RoosterHub>("/rooster-ws");
             });
         }
     }
