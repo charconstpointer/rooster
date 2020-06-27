@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+option csharp_namespace = "Rooster";
+service Rooster {
+  rpc Notify(ChangeNotificationRequest) returns (ChangeNotificationResponse);
+}
+
+message ChangeNotificationRequest {
+  string value = 1;
+}
+
+message ChangeNotificationResponse {
+  
+}

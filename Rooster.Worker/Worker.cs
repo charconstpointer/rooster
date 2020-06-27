@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Grpc.Net.Client;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -20,10 +21,15 @@ namespace Rooster.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            var channel = GrpcChannel.ForAddress("http://localhost:5000");
+            var client = new Rooster.RoosterClient(channel);
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await _cache.SetStringAsync("sweets", DateTime.UtcNow.Millisecond.ToString(), token: stoppingToken);
+                var value = DateTime.UtcNow.Millisecond.ToString();
+                await _cache.SetStringAsync("sweets", value, stoppingToken);
+                await client.NotifyAsync(new ChangeNotificationRequest {Value = value});
+                _logger.LogInformation("Notification sent");
                 await Task.Delay(60000, stoppingToken);
             }
         }
