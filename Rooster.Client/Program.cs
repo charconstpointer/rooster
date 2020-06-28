@@ -22,7 +22,7 @@ namespace Rooster.Client
                 await Task.Delay(new Random().Next(0,5) * 1000);
                 await connection.StartAsync();
             };
-            connection.StartAsync().GetAwaiter().GetResult();
+            await connection.StartAsync();
             await Task.Delay(9999999);
         }
     }
