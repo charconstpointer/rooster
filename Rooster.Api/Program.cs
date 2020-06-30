@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Rooster.Api
 {
-    public class Program
+    public class App
     {
         public static void Main(string[] args)
         {

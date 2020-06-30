@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rooster.Api", "Rooster.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rooster.Client", "Rooster.Client\Rooster.Client.csproj", "{5894610B-FF20-45C5-8B36-1CC3F4CBE4B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rooster.Playground", "Rooster.Playground\Rooster.Playground.csproj", "{331683A5-9D06-4978-B5E8-6FF512FA5349}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{5894610B-FF20-45C5-8B36-1CC3F4CBE4B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5894610B-FF20-45C5-8B36-1CC3F4CBE4B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5894610B-FF20-45C5-8B36-1CC3F4CBE4B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331683A5-9D06-4978-B5E8-6FF512FA5349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331683A5-9D06-4978-B5E8-6FF512FA5349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331683A5-9D06-4978-B5E8-6FF512FA5349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331683A5-9D06-4978-B5E8-6FF512FA5349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

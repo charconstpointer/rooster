@@ -24,11 +24,11 @@ namespace Rooster.Api
             services.AddSingleton<ICollection<string>>(new List<string>());
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = "localhost";
+                options.Configuration = Configuration.GetConnectionString("Redis");
                 options.InstanceName = "Rooster";
             });
             services.AddControllers();
-            services.AddSignalR().AddStackExchangeRedis("localhost",
+            services.AddSignalR().AddStackExchangeRedis(Configuration.GetConnectionString("Redis"),
                 options => { options.Configuration.ChannelPrefix = "rooster.ws"; });
         }
 

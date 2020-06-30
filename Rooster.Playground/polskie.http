@@ -1,0 +1,3 @@
+﻿GET https://polskie.azurewebsites.net/mobile/api/schedules/?Program=3&SelectedDate=2020.05.05
+Accept: application/json
+
