@@ -22,7 +22,7 @@ namespace Rooster.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var channel = GrpcChannel.ForAddress("http://localhost:5000");
+            var channel = GrpcChannel.ForAddress("http://api:5000");
             var client = new Rooster.RoosterClient(channel);
             while (!stoppingToken.IsCancellationRequested)
             {

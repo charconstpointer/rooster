@@ -16,7 +16,7 @@ namespace Rooster.Worker
                 {
                     services.AddStackExchangeRedisCache(options =>
                     {
-                        options.Configuration = "localhost";
+                        options.Configuration = "redis";
                         options.InstanceName = "Rooster";
                     });
                     services.AddHostedService<Worker>();

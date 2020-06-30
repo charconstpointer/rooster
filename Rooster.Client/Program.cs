@@ -10,7 +10,7 @@ namespace Rooster.Client
         static async Task Main(string[] args)
         {
             var connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5000/rooster-ws")
+                .WithUrl("http://webscoket.noinputsignal.com/rooster-ws")
                 .Build();
 
             connection.On<Notification>("onChanged", message =>
